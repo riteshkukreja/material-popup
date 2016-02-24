@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Button Fab Popup</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<style type="text/css">
+		body, html { margin: 0; background: #000;  overflow: hidden;}
+
+		span {
+			font-family: Open Sans, arial;
+			font-size: 4em;
+			font-weight: light;
+			color: #FFF;
+			position: absolute;
+			top: calc(50% - 36px);
+			left: calc(50% - 180px);
+
+		}
+		@keyframes pop {
+			0% {
+				z-index: 50;
+			}
+			60% {
+				transform: scale(2) translateX(200px) translateY(300px);
+			}
+			100% {
+				transform: scale(50);
+				border-radius: 0;
+			}
+		}
+		svg {
+			width: 100vw;
+			height: 100vh;
+		}
+
+		#pop.active {
+			transform-origin: 50% 50%;
+			animation: pop 2s ease-out forwards 1;
+			animation-delay: 1s;
+		}
+
+	</style>
+	<script type="text/javascript">
+	window.onload = function() {
+		(document.getElementById("pop")).addEventListener("click", function() {
+			
+			document.getElementById("pop").setAttribute("class", "active");
+		});
+	}
+	</script>
+</head>
+<body>
+
+	<span>WELCOME</span>
+
+	<svg>
+		<circle id="pop" cx="100" cy="100" r="30" fill="#006699"></circle>
+		<rect width="20" height="4" x="90" y="98" fill="#222" />
+		<rect width="4" height="20" x="98" y="90" fill="#222" />
+	</svg>
+
+</body>
+</html>
